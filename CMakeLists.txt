@@ -14,6 +14,7 @@ set(MSG_DEPS
   std_msgs
   sensor_msgs
   moveit_msgs
+  actionlib_msgs
 )
 
 find_package(catkin REQUIRED genmsg ${MSG_DEPS})
@@ -28,12 +29,13 @@ set(SRV_FILES
 
 set(ACT_FILES
 #MoveGroup.action
+Move.action
 )
 
-#add_action_files(DIRECTORY action FILES ${ACT_FILES})
+add_action_files(DIRECTORY action FILES ${ACT_FILES})
 #add_message_files(DIRECTORY msg FILES ${MSG_FILES})
 #add_service_files(DIRECTORY srv FILES ${SRV_FILES})
 
-#generate_messages(DEPENDENCIES ${MSG_DEPS})
+generate_messages(DEPENDENCIES ${MSG_DEPS})
 
 catkin_package(DEPENDS ${MSG_DEPS})
