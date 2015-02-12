@@ -4,6 +4,9 @@ moveit_msgs/MotionPlanRequest request
 # Planning options
 moveit_msgs/PlanningOptions planning_options
 
+# ViGIR extended planning options
+ExtendedPlanningOptions extended_planning_options
+
 ---
 
 # An error code reflecting what went wrong
