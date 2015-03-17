@@ -1,5 +1,6 @@
 uint8 TYPE_FREE_MOTION=1
-uint8 TYPE_CARTESIAN_MOTION=2
+uint8 TYPE_CARTESIAN_WAYPOINTS=2
+uint8 TYPE_CIRCULAR_MOTION=3
 
 uint8 ORIENTATION_FULL=0
 uint8 ORIENTATION_AXIS_ONLY=1
@@ -14,8 +15,11 @@ string target_frame
 # Specify an identifier for each waypoint
 string[] target_pose_names
 
-# Specify the desired waypoints. For default planning
-# to target pose, just specify single target
+# Specify the desired waypoints. The following semantics apply:
+# TYPE_FREE_MOTION: Single target pose
+# TYPE_CARTESIAN_WAYPOINTS: Waypoints in arbitrary frame
+# TYPE_CIRCULAR_MOTION: Rotation center
+
 geometry_msgs/Pose[] target_poses
 
 # Specify the times when the target poses should be reached
@@ -37,3 +41,13 @@ bool check_self_collisions
 
 # Specify if robot should continuously replan motion plan
 bool continuous_replanning
+
+# Circular motion settings below
+#----------------------------------------------
+
+# Used for specifying circular motion rotation angle
+# Can be positive or negative
+float32 rotation_angle
+
+# Keep endeffector orientation if true (do not rotate around rotation_center_pose)
+bool keep_endeffector_orientation
