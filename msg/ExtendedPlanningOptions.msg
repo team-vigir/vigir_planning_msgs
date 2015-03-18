@@ -18,6 +18,13 @@ geometry_msgs/Pose[] target_poses
 # Specify if robot should continuously replan motion plan
 bool continuous_replanning
 
+# Specify if collisions should be avoided
+bool avoid_collisions
+
+# Determines if incomplete cartesian plans should be executed
+# (Happens if target moves out of reach)
+bool execute_incomplete_cartesian_plans
+
 # Circular motion settings below
 #----------------------------------------------
 
