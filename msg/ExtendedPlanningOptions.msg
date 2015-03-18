@@ -2,18 +2,11 @@ uint8 TYPE_FREE_MOTION=1
 uint8 TYPE_CARTESIAN_WAYPOINTS=2
 uint8 TYPE_CIRCULAR_MOTION=3
 
-uint8 ORIENTATION_FULL=0
-uint8 ORIENTATION_AXIS_ONLY=1
-uint8 ORIENTATION_IGNORE=2
-
 # Specify the desired motion type
 uint8 target_motion_type
 
 # Specify frame in which target poses below are specified
 string target_frame
-
-# Specify an identifier for each waypoint
-string[] target_pose_names
 
 # Specify the desired waypoints. The following semantics apply:
 # TYPE_FREE_MOTION: Single target pose
@@ -29,6 +22,26 @@ float64[] target_pose_times
 # Specify the target link for each target pose
 string[] target_link_names
 
+# Specify if robot should continuously replan motion plan
+bool continuous_replanning
+
+# Specify if collisions should be avoided
+bool avoid_collisions
+
+# Determines if incomplete cartesian plans should be executed
+# (Happens if target moves out of reach)
+bool execute_incomplete_cartesian_plans
+
+# Drake-specific settings below
+#----------------------------------------------
+
+uint8 ORIENTATION_FULL=0
+uint8 ORIENTATION_AXIS_ONLY=1
+uint8 ORIENTATION_IGNORE=2
+
+# Specify an identifier for each waypoint
+string[] target_pose_names
+
 # Specify how the orientation is to be interpreted at each
 # waypoint - ignore, only use axis or full orientation
 uint8 target_orientation_type
@@ -39,8 +52,6 @@ float64 trajectory_sample_rate
 # Specify whether the planner should check for self-collisions
 bool check_self_collisions
 
-# Specify if robot should continuously replan motion plan
-bool continuous_replanning
 
 # Circular motion settings below
 #----------------------------------------------
