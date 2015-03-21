@@ -21,6 +21,8 @@ find_package(catkin REQUIRED genmsg ${MSG_DEPS})
 
 set(MSG_FILES
 ExtendedPlanningOptions.msg
+JointPositionConstraint.msg
+PlannerConfiguration.msg
 )
 
 set(SRV_FILES
