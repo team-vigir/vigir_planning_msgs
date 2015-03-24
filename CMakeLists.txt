@@ -5,6 +5,7 @@ project(vigir_planning_msgs)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  message_generation
   moveit_msgs
   sensor_msgs
   geometry_msgs
@@ -19,7 +20,7 @@ set(MSG_DEPS
   actionlib_msgs
 )
 
-find_package(catkin REQUIRED genmsg ${MSG_DEPS})
+#find_package(catkin REQUIRED genmsg ${MSG_DEPS})
 
 set(MSG_FILES
   ExtendedPlanningOptions.msg
@@ -28,6 +29,9 @@ set(MSG_FILES
   RequestDrakeTrajectory.msg
   ResultDrakeTrajectory.msg
   RequestDrakeCartesianTrajectory.msg  
+  ExtendedPlanningOptions.msg
+  JointPositionConstraint.msg
+  PlannerConfiguration.msg
 )
 
 set(SRV_FILES
@@ -48,4 +52,13 @@ add_service_files(DIRECTORY srv FILES ${SRV_FILES})
 
 generate_messages(DEPENDENCIES ${MSG_DEPS})
 
-catkin_package(DEPENDS ${MSG_DEPS})
+include_directories(include ${catkin_INCLUDE_DIRS})
+
+catkin_package(
+  INCLUDE_DIRS include
+  CATKIN_DEPENDS moveit_msgs sensor_msgs message_runtime std_msgs
+  DEPENDS ${MSG_DEPS})
+  
+install(DIRECTORY include/${PROJECT_NAME}/
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+  FILES_MATCHING PATTERN "*.h")
