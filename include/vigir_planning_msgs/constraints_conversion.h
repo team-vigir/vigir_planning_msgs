@@ -40,11 +40,18 @@ static inline bool toMoveitConstraint (const vigir_planning_msgs::JointPositionC
                                        moveit_msgs::JointConstraint &output)
 {
   if (input.joint_max < input.joint_min)
+  {
     return false;
-
-  output.position = (input.joint_max - input.joint_min) * 0.5;
-  output.tolerance_above = input.joint_max - output.position;
-  output.tolerance_below = output.tolerance_above;
+  }else if (input.joint_max == input.joint_min){
+    output.position = input.joint_max;
+    output.tolerance_above = 0.0;
+    output.tolerance_below = 0.0;
+  }else{
+    // position is mean between max and min limits for now
+    output.position = (input.joint_max - input.joint_min) * 0.5;
+    output.tolerance_above = input.joint_max - output.position;
+    output.tolerance_below = output.tolerance_above;
+  }
 
   return true;
 }
@@ -52,6 +59,9 @@ static inline bool toMoveitConstraint (const vigir_planning_msgs::JointPositionC
 static inline bool toVigirConstraint (const moveit_msgs::JointConstraint &input,
                                       vigir_planning_msgs::JointPositionConstraint &output)
 {
+  if ((input.tolerance_above < 0.0) || (input.tolerance_below < 0.0))
+    return false;
+
   output.joint_max = input.position + input.tolerance_above;
   output.joint_min = input.position - input.tolerance_below;
 
