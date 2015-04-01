@@ -24,6 +24,8 @@ set(MSG_FILES
 ExtendedPlanningOptions.msg
 JointPositionConstraint.msg
 PlannerConfiguration.msg
+HeadControlCommand.msg
+
 )
 
 set(SRV_FILES
