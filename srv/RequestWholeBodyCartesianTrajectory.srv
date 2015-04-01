@@ -1,0 +1,3 @@
+RequestDrakeCartesianTrajectory trajectory_request
+---
+ResultDrakeTrajectory trajectory_result

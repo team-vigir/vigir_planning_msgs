@@ -8,6 +8,7 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
   moveit_msgs
   sensor_msgs
+  geometry_msgs
   std_msgs
 )
 
@@ -15,31 +16,39 @@ set(MSG_DEPS
   std_msgs
   sensor_msgs
   moveit_msgs
+  geometry_msgs
   actionlib_msgs
 )
 
 #find_package(catkin REQUIRED genmsg ${MSG_DEPS})
 
 set(MSG_FILES
-ExtendedPlanningOptions.msg
-JointPositionConstraint.msg
-PlannerConfiguration.msg
-HeadControlCommand.msg
-
+  ExtendedPlanningOptions.msg
+  JointPositionConstraint.msg
+  PlannerConfiguration.msg
+  RequestDrakeIK.msg
+  ResultDrakeIK.msg
+  RequestDrakeTrajectory.msg
+  ResultDrakeTrajectory.msg
+  RequestDrakeCartesianTrajectory.msg 
+  HeadControlCommand.msg 
 )
 
 set(SRV_FILES
-#GetMotionPlan.srv
+  #GetMotionPlan.srv
+  RequestWholeBodyIK.srv
+  RequestWholeBodyTrajectory.srv
+  RequestWholeBodyCartesianTrajectory.srv
 )
 
 set(ACT_FILES
-#MoveGroup.action
-Move.action
+  #MoveGroup.action
+  Move.action
 )
 
 add_action_files(DIRECTORY action FILES ${ACT_FILES})
 add_message_files(DIRECTORY msg FILES ${MSG_FILES})
-#add_service_files(DIRECTORY srv FILES ${SRV_FILES})
+add_service_files(DIRECTORY srv FILES ${SRV_FILES})
 
 generate_messages(DEPENDENCIES ${MSG_DEPS})
 
