@@ -24,14 +24,14 @@ set(MSG_DEPS
 
 set(MSG_FILES
   ExtendedPlanningOptions.msg
+  JointPositionConstraint.msg
+  PlannerConfiguration.msg
   RequestDrakeIK.msg
   ResultDrakeIK.msg
   RequestDrakeTrajectory.msg
   ResultDrakeTrajectory.msg
   RequestDrakeCartesianTrajectory.msg  
-  ExtendedPlanningOptions.msg
-  JointPositionConstraint.msg
-  PlannerConfiguration.msg
+  HeadControlCommand.msg 
 )
 
 set(SRV_FILES
