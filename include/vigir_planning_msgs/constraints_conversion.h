@@ -37,15 +37,16 @@ namespace vigir_planning_msgs
 
 
 static inline bool toMoveitConstraint (const vigir_planning_msgs::JointPositionConstraint &input,
-                                       moveit_msgs::JointConstraint &output)
+                                       moveit_msgs::JointConstraint &output,
+                                       double tolerance = std::numeric_limits<double>::epsilon())
 {
   if (input.joint_max < input.joint_min)
   {
     return false;
   }else if (input.joint_max == input.joint_min){
     output.position = input.joint_max;
-    output.tolerance_above = 0.0;
-    output.tolerance_below = 0.0;
+    output.tolerance_above = tolerance;
+    output.tolerance_below = tolerance;
   }else{
     // position is mean between max and min limits for now
     output.position = (input.joint_max - input.joint_min) * 0.5;
