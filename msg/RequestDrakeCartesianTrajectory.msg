@@ -14,6 +14,9 @@ float64[] waypoint_times
 # End-effector link name
 string[] target_link_names
 
+# Axis on end-effector (for ORIENTATION_AXIS_ONLY)
+geometry_msgs/Point[] target_link_axis
+
 # How to apply target orientation: full, axis only or ignore
 uint8 target_orientation_type
 

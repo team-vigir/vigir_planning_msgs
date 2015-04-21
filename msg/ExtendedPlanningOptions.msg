@@ -56,6 +56,9 @@ float64[] target_pose_times
 # Specify the target link for each target pose
 string[] target_link_names
 
+# Specify axis for each target link (for ORIENTATION_AXIS_ONLY)
+geometry_msgs/Point[] target_link_axis
+
 
 # Circular motion settings below
 #----------------------------------------------
