@@ -24,6 +24,7 @@ set(MSG_DEPS
 
 set(MSG_FILES
   ExtendedPlanningOptions.msg
+  ExtendedPlanningResult.msg
   JointPositionConstraint.msg
   PlannerConfiguration.msg
   RequestDrakeIK.msg
