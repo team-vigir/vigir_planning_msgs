@@ -28,3 +28,7 @@ bool check_self_collisions
 
 # Joints that may be moved
 string[] free_joint_names
+
+# Determines if incomplete cartesian plans should be executed
+# (Happens if target moves out of reach). Defaults to false.
+bool execute_incomplete_cartesian_plans
