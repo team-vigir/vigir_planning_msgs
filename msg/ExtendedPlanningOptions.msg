@@ -43,7 +43,7 @@ string[] target_pose_names
 # waypoint - ignore, only use axis or full orientation
 uint8 target_orientation_type
 
-# Specify the sampling rate of the resulting trajectory (in Hz)
+# Specify the sampling rate of the resulting trajectory (in Hz, default = 4.0Hz if not set)
 float64 trajectory_sample_rate
 
 # Specify whether the planner should check for self-collisions
@@ -51,6 +51,7 @@ bool check_self_collisions
 
 # Specify the times when the target poses should be reached
 # (in seconds, relative to the start of the trajectory)
+# optional - if not set, pose times are estimated
 float64[] target_pose_times
 
 # Specify the target link for each target pose
