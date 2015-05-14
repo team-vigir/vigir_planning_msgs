@@ -23,8 +23,10 @@ set(MSG_DEPS
 #find_package(catkin REQUIRED genmsg ${MSG_DEPS})
 
 set(MSG_FILES
+  CollisionPair.msg
   ExtendedPlanningOptions.msg
   ExtendedPlanningResult.msg
+  ExtendedPlanningSceneDiff.msg
   JointPositionConstraint.msg
   PlannerConfiguration.msg
   RequestDrakeIK.msg
