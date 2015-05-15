@@ -19,6 +19,15 @@ string target_frame
 # TYPE_CIRCULAR_MOTION: Rotation center
 geometry_msgs/Pose[] target_poses
 
+# Specify frame in which reference point below is specified
+string reference_point_frame
+
+# Specify the desired reference point
+# If this is the Identity, the reference point will be
+# interpretaded as the wrist, Otherwise, the poses for the
+# wrist are going to be transformed to this reference point.
+geometry_msgs/Pose reference_point
+
 # Specify if robot should continuously replan motion plan
 bool continuous_replanning
 
