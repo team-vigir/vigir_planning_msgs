@@ -1,3 +1,9 @@
+# Extended planning options provide additional and
+# convenience options beyond what the standard MoveIt
+# move Action provides.
+
+# Types of motion supported. See below for further
+# explanation
 uint8 TYPE_FREE_MOTION=1
 uint8 TYPE_CARTESIAN_WAYPOINTS=2
 uint8 TYPE_CIRCULAR_MOTION=3
@@ -29,14 +35,26 @@ string reference_point_frame
 geometry_msgs/Pose reference_point
 
 # Specify if robot should continuously replan motion plan
+# Currently this does nothing
 bool continuous_replanning
 
-# Specify if collisions should be avoided
+# Specify if collisions with the environmentshould be avoided
+# Self collisions are always avoided per default and this
+# does not affect self collision checking
 bool avoid_collisions
 
 # Determines if incomplete cartesian plans should be executed
 # (Happens if target moves out of reach). Defaults to false.
 bool execute_incomplete_cartesian_plans
+
+# Planning scene specific settings below
+#----------------------------------------------
+
+# These settings are applied as a diff to the planning scene after
+# the planning scene diff from the standard planning_options is
+# applied.
+ExtendedPlanningSceneDiff extended_planning_scene_diff
+
 
 # Drake-specific settings below
 #----------------------------------------------
@@ -52,7 +70,7 @@ string[] target_pose_names
 # waypoint - ignore, only use axis or full orientation
 uint8 target_orientation_type
 
-# Specify the sampling rate of the resulting trajectory (in Hz)
+# Specify the sampling rate of the resulting trajectory (in Hz, default = 4.0Hz if not set)
 float64 trajectory_sample_rate
 
 # Specify whether the planner should check for self-collisions
@@ -60,6 +78,7 @@ bool check_self_collisions
 
 # Specify the times when the target poses should be reached
 # (in seconds, relative to the start of the trajectory)
+# optional - if not set, pose times are estimated
 float64[] target_pose_times
 
 # Specify the target link for each target pose
