@@ -42,6 +42,7 @@ set(SRV_FILES
   RequestWholeBodyIK.srv
   RequestWholeBodyTrajectory.srv
   RequestWholeBodyCartesianTrajectory.srv
+  GetPlanningGroupState.srv
 )
 
 set(ACT_FILES
