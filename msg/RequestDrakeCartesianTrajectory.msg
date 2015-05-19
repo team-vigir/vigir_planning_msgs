@@ -32,3 +32,7 @@ string[] free_joint_names
 # Determines if incomplete cartesian plans should be executed
 # (Happens if target moves out of reach). Defaults to false.
 bool execute_incomplete_cartesian_plans
+
+# Determines if the motion should be along an axis between the points
+# or if it is a free motion with only fix endpoints
+bool free_motion
