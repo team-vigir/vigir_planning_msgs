@@ -97,3 +97,7 @@ float32 rotation_angle
 
 # Keep endeffector orientation if true (do not rotate around rotation_center_pose)
 bool keep_endeffector_orientation
+
+# Used for specifying circular motion with translation
+# Can be positive or negative
+float32 pitch
