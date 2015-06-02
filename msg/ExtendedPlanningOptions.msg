@@ -38,10 +38,10 @@ geometry_msgs/Pose reference_point
 # Currently this does nothing
 bool continuous_replanning
 
-# Specify if collisions with the environmentshould be avoided
+# Specify if collisions with the environment should be avoided
 # Self collisions are always avoided per default and this
 # does not affect self collision checking
-bool avoid_collisions
+bool allow_environment_collisions
 
 # Determines if incomplete cartesian plans should be executed
 # (Happens if target moves out of reach). Defaults to false.
