@@ -23,3 +23,13 @@ float32 octomap_max_height
 
 # Size of the goal cube that gets cleared
 float32 goal_cube_clearance
+
+# The planner to use (if empty, default planner is used)
+string planner_id
+
+#
+# Drake-specific options (only used if planner_id == "drake")
+#
+
+# Sample rate of the resulting trajectory
+float32 trajectory_sample_rate
