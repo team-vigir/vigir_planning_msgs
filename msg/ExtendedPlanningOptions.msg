@@ -26,12 +26,13 @@ string target_frame
 geometry_msgs/Pose[] target_poses
 
 # Specify frame in which reference point below is specified
+# If empty, use standard group end frame
 string reference_point_frame
 
 # Specify the desired reference point
-# If this is the Identity, the reference point will be
-# interpretaded as the wrist, Otherwise, the poses for the
-# wrist are going to be transformed to this reference point.
+# If this contains a invalid quaternion, the reference point is
+# ignored. Otherwise, the target poses for the endeffector frame
+# are transformed according to this reference point.
 geometry_msgs/Pose reference_point
 
 # Specify if robot should continuously replan motion plan
