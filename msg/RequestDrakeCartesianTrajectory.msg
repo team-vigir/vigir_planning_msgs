@@ -8,6 +8,9 @@ moveit_msgs/RobotState current_state
 # Waypoints given in frame as specified in header
 geometry_msgs/Pose[] waypoints
 
+# Position relative to end-effector that should reach the target pose
+geometry_msgs/Point[] pos_on_eef
+
 # Waypoint time stamps [s]
 float64[] waypoint_times
 
